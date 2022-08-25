@@ -1,0 +1,19 @@
+.page {
+  width: 8.5in;
+  height: 11in;
+}
+
+@media screen {
+  body {
+    display: flex;
+    background: linear-gradient(45deg,
+      #333,
+      #666
+    );
+  }
+
+  .page {
+    border: solid 1px navy;
+    margin: 1em;
+  }
+}

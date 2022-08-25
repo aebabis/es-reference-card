@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <link rel="stylesheet" type="text/css" href="./printer.css">
+  <link rel="stylesheet" type="text/css" id="code-styles">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./exceptions.css">
+  <script src="highlight.min.js"></script>
+  <script>
+    let styles = `a11y-dark.min.css                 kimbie-dark.min.css
+      a11y-light.min.css                kimbie-light.min.css
+      agate.min.css                     lightfair.min.css
+      an-old-hope.min.css               lioshi.min.css
+      androidstudio.min.css             magula.min.css
+      arduino-light.min.css             mono-blue.min.css
+      arta.min.css                      monokai-sublime.min.css
+      ascetic.min.css                   monokai.min.css
+      atom-one-dark-reasonable.min.css  night-owl.min.css
+      atom-one-dark.min.css             nnfx-dark.min.css
+      atom-one-light.min.css            nnfx-light.min.css
+      base16/                           nord.min.css
+      brown-paper.min.css               obsidian.min.css
+      brown-papersq.png                 paraiso-dark.min.css
+      codepen-embed.min.css             paraiso-light.min.css
+      color-brewer.min.css              pojoaque.jpg
+      dark.min.css                      pojoaque.min.css
+      default.min.css                   purebasic.min.css
+      devibeans.min.css                 qtcreator-dark.min.css
+      docco.min.css                     qtcreator-light.min.css
+      far.min.css                       rainbow.min.css
+      foundation.min.css                routeros.min.css
+      github-dark-dimmed.min.css        school-book.min.css
+      github-dark.min.css               shades-of-purple.min.css
+      github.min.css                    srcery.min.css
+      gml.min.css                       stackoverflow-dark.min.css
+      googlecode.min.css                stackoverflow-light.min.css
+      gradient-dark.min.css             sunburst.min.css
+      gradient-light.min.css            tomorrow-night-blue.min.css
+      grayscale.min.css                 tomorrow-night-bright.min.css
+      hybrid.min.css                    vs.min.css
+      idea.min.css                      vs2015.min.css
+      ir-black.min.css                  xcode.min.css
+      isbl-editor-dark.min.css          xt256.min.css
+      isbl-editor-light.min.css`.split(/ +/).sort();
+    const link = document.querySelector('#code-styles');
+    let styleIndex = styles.indexOf('brown-paper.min.css') - 1;
+
+    const nextStyle = () => {
+      styleIndex = (styleIndex + 1) % styles.length;
+      link.setAttribute('href', `styles/${styles[styleIndex]}`);
+    };
+
+    nextStyle();
+
+    window.addEventListener('load', () => {
+      hljs.highlightAll();
+      // document.body.addEventListener('click', nextStyle);
+    });</script>
+</script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>JavaScript Quick Reference</h1>
+      <div class="subtitle">Intermediate Level</div>
+    </header>
+    <div class="row">
+      <div class="column">
+        <section id="variables">
+          <h2>Variables</h2>
+          <div class="frame">
+            <pre><code class="js">let height = 5.4;</code></pre>
+            <pre><code class="js">const FPS = 30;  // Can't change</code></pre>
+          </div>
+          <p class="note">const is recommended for <em>all</em> values that won&apos;t change.</p>
+        </section>
+        <section id="string-concatenation">
+          <h2>String concatenation</h2>
+          <div class="examples frame">
+            <pre><code class="js">"5" + "5"</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">"55"</code></pre>
+
+            <pre><code class="js">"5" - "5"</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">0</code></pre>
+          </div>
+          <p class="note">Use parseInt, parseFloat,
+            or <strong>unary plus</strong> to prevent
+            concatenation.
+          </p>
+          <div class="frame">
+          <pre><code class="js">const userInput = '19';
+const userAge = +userInput;      //19;
+const ageNextYear = userAge + 1; //20;</code></pre>
+          </div>
+          <p class="note"><strong>Template strings</strong> include
+            variables concisely</p>
+          <div class="frame">
+          <pre><code class="js">const text = `In one year,
+  you will be ${ageNextYear}`;</code></pre>
+          </div>
+        </section>
+        <section id="loops">
+          <h2>Loops</h2>
+          <div class="frame">
+            <pre><code class="js">for (let i = 0; i &lt; 10; i++) {
+  console.log(i);
+}</code></pre>
+          </div>
+          <div class="frame">
+            <pre><code class="js">while (current = queue.getNext()) {
+  console.log(current.value);
+}</code></pre>
+          </div>
+          <div class="frame">
+            <pre><code class="js">do {
+  input = prompt('Enter a number');
+} while(isNaN(input));</code></pre>
+          </div>
+          <p class="note">Array functions (not loops) are recommended
+            for traversing arrays.
+          </p>
+        </section>
+      </div>
+      <div class="column">
+        <section id="operators">
+          <h2>Operators</h2>
+          <div class="examples frame">
+            <pre><code class="js">2 + 2</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">4</code></pre>
+
+            <pre><code class="js">6 - 3</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">3</code></pre>
+
+            <pre><code class="js">5 * 4</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">20</code></pre>
+
+            <pre><code class="js">2 ** 3</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">8</code></pre>
+
+            <pre><code class="js">3 / 2</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">1.5</code></pre>
+
+            <pre><code class="js">10 % 3</code></pre>
+            <div>⇒</div>
+            <pre><code class="js">1</code></pre>
+          </div>
+          <p class="note">Use Math.floor for <strong>integer arithmetic</strong></p>
+          <div class="frame">
+          <pre><code class="js">const eggs = 29;
+const cartons = Math.floor(eggs / 12);
+const leftover = eggs % 12;</code></pre>
+          </div>
+        </section>
+        <section id="functions">
+          <h2>Functions</h2>
+          <div class="frame">
+            <h3>function declaration</h3>
+          <pre><code class="js">function showResult(text) {
+  document.body.innerText = text;
+}</code></pre>
+            <h3>arrow function</h3>
+          <pre><code class="js">const showResult = (text) => {
+  document.body.innerText = text;
+}</code></pre>
+          </div>
+          <div class="frame">
+            <h3>function declaration</h3>
+            <pre><code class="js">function getCirc(r) {
+  return 2 * Math.PI * r;
+}</code></pre>
+            <h3>arrow function</h3>
+            <pre><code class="js">const getCirc = (r) => 2*Math.PI*r;</code></pre>
+          </div>
+          <p><strong>Arrow functions</strong>
+            are concise inside <strong>callbacks</strong>.</p>
+          <div class="frame">
+          <pre><code class="js">setTimeout(() => {
+  console.log('1s later');
+}, 1000);</code></pre>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <section id="string-functions">
+      <h2>String Functions</h2>
+    </section>
+    <section id="array-traversal">
+      <h2>Traversing Arrays</h2>
+      <div class="frame">
+        <pre><code class="js">const myList = [1, 2, 5, 7, 4];</code></pre>
+        <div class="examples">
+          <pre><code class="js">myList.filter(v => v > 2)</code></pre>
+          <div>⇒</div>
+          <pre><code class="js">[5, 7, 4]</code></pre>
+
+          <pre><code class="js">myList.map(v => v * 2)</code></pre>
+          <div>⇒</div>
+          <pre><code class="js">[2, 4, 10, 14, 8]</code></pre>
+
+          <pre><code class="js">myList.reduce((a, b) => a + b)</code></pre>
+          <div>⇒</div>
+          <pre><code class="js">19</code></pre>
+
+          <pre><code class="js">myList.forEach(v => console.log(v))</code></pre>
+          <div>⇒</div>
+          <deem>(Prints each value in the list)</deem>
+        </div>
+      </div>
+    </section>
+    <section id="array-functions">
+      <h2>Additional Array Functions</h2>
+      <div class="examples frame">
+        <pre><code class="js">['cooking', 'hiking', 'skiing'].includes('cooking')</code></pre>
+        <div>⇒</div>
+        <pre><code class="js">true</code></pre>
+    </section>
+  </div>
+</body>
+</html>

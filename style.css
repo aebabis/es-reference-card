@@ -1,0 +1,111 @@
+body {
+  font-family: 'Open Sans';
+}
+
+.page {
+  --gap: 1em;
+  background: hsl(206deg, 98%, 27%);
+  gap: var(--gap);
+  padding: var(--gap);
+}
+
+.page > * + * {
+  margin-top: var(--gap);
+}
+
+header {
+  /* padding: var(--gap); */
+  text-align: center;
+  color: hsl(206deg, 82%, 70%);
+}
+
+h1 { /* 32 */
+  font-size: 2em;
+}
+
+h2 { /* 20.8 */
+  font-size: 1.3em;
+  margin-bottom: .4em;
+  text-transform: lowercase;
+}
+
+h3 { /* 11.2 */
+  font-size: .7em;
+  margin: 2px 0 -6px 5px;
+  color: hsl(206deg, 82%, 56%);
+}
+
+.row, .column {
+  display: flex;
+  flex-basis: 0;
+  flex: 1;
+  gap: var(--gap);
+}
+
+.column {
+  flex-direction: column;
+}
+
+.hljs {
+  background: none !important;
+}
+
+section {
+  flex-basis: 0;
+  flex: 1;
+  /* background: hsl(206deg, 82%, 56%); */
+  background: hsl(206deg, 82%, 75%);
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.note {
+  color: hsl(206deg, 82%, 30%);
+}
+
+.frame {
+  margin-top: .5em;
+  padding: .3em;
+  border-radius: .2em;
+  background: hsl(206deg, 82%, 80%);
+}
+
+.frame .note {
+  color: hsl(206deg, 82%, 40%);
+}
+
+pre code.hljs { /* 15.6 */
+  padding: .3em;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+p { /* 16 */
+  color: hsl(206deg, 82%, 15%);
+  margin: .5em 0 .3em 0;
+  line-height: 1.3;
+}
+
+p code {
+  font-family: 'Source Sans Pro';
+}
+
+.note { /* 11.2 */
+  font-size: .7em;
+  line-height: 1.5;
+}
+
+.examples {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0 .5em;
+}
+
+.examples > :nth-child(3n + 2) {
+  color: hsl(206deg, 48%, 37%);
+}
+
+/* section :last-child { */
+  /* margin-bottom: 0; */
+/* } */

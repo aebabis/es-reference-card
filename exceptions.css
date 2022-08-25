@@ -1,0 +1,19 @@
+.hljs-comment {
+  color: hsl(206deg, 52%, 40%);
+}
+
+#operators .examples > :nth-child(3n + 1) {
+  justify-self: center;
+}
+
+#operators .examples > :nth-child(3n + 1) .hljs {
+  font-weight: bold;
+}
+
+#operators .examples > :nth-child(3n + 1) .hljs > * {
+  font-weight: normal;
+}
+
+#operators .examples > :nth-child(3n + 1) .hljs > .hljs-string {
+  color: inherit;
+}

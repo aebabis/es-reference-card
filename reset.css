@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+deem {
+  font-style: italic;
+  opacity: .8;
+}
