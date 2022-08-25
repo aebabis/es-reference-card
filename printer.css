@@ -1,0 +1,26 @@
+.page {
+  width: 8.5in;
+  height: 11in;
+}
+
+@media screen {
+  html, body {
+    min-width: calc(8.5in * 2);
+  }
+
+  body {
+    display: flex;
+    background: linear-gradient(45deg,
+      #333,
+      #666
+    );
+  }
+
+  .page {
+    margin: 1em;
+  }
+}
+
+@page {
+  margin: 0;
+}

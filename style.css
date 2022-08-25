@@ -1,0 +1,190 @@
+html {
+  font-size: 9pt;
+}
+
+body {
+  font-family: 'Open Sans';
+}
+
+.page {
+  --gap: 1em;
+  background: hsl(206deg, 98%, 27%);
+  gap: var(--gap);
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  /* padding: var(--gap); */
+  text-align: center;
+  color: hsl(206deg, 82%, 70%);
+  position: relative;
+}
+
+header .meta {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: .7em;
+  opacity: .5;
+}
+
+h1 { /* 32 */
+  font-size: 2em;
+}
+
+.subtitle {
+  font-size: 1.1em;
+}
+
+h2 { /* 20.8 */
+  font-size: 1.5em;
+  margin-bottom: .4em;
+  text-transform: lowercase;
+  color: white;
+}
+
+h3 { /* 11.2 */
+  font-size: .85em;
+  margin: 3px 0 -6px 0;
+  color: hsl(206deg, 82%, 68%);
+}
+
+table.io td {
+  padding-left: 1em;
+}
+
+.row, .column {
+  display: flex;
+  flex-basis: 0;
+  flex: 1;
+  gap: var(--gap);
+}
+
+.row.gap {
+  justify-content: space-between;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.hljs {
+  background: none !important;
+}
+
+section {
+  flex-basis: 0;
+  flex: 1;
+  /* background: hsl(206deg, 82%, 56%); */
+  background: hsl(206deg, 57%, 45%);
+  padding: 1em;
+  border-radius: .5em;
+}
+
+pre code.hljs { /* 15.6 */
+  padding: .15em 0;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+p { /* 16 */
+  color: hsl(206deg, 82%, 15%);
+  margin-top: .5em;
+  line-height: 1.3;
+}
+
+p code {
+  font-family: 'Source Sans Pro';
+}
+
+.frame {
+  margin-top: .6em;
+  padding: .55em .6em;
+  border-radius: .2em;
+  background: hsl(206deg, 82%, 80%);
+}
+
+.frame .note {
+  color: hsl(206deg, 82%, 40%);
+}
+
+.side-label {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.side-label pre {
+  flex: 1;
+}
+
+.side-label h3 {
+  align-self: flex-end;
+  text-align: center;
+  transform: rotate(90deg) translateX(12px);
+  transform-origin: top right;
+}
+
+.note { /* 11.2 */
+  color: hsl(206deg, 82%, 30%);
+  font-size: .85em;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.note em {
+  font-style: normal;
+}
+
+.note.after {
+  margin-top: .1em;
+}
+
+.note.after:not(:last-child) {
+  margin-bottom: 1.1em;
+}
+
+.examples {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0 .5em;
+}
+
+.examples > :nth-child(3n + 2) {
+  align-self: center;
+  color: hsl(206deg, 28%, 57%);
+}
+
+section :first-child {
+  margin-top: 0;
+} 
+
+section :last-child {
+  margin-bottom: 0;
+}
+
+.space > * {
+  flex: 1;
+}
+
+.fade {
+  opacity: .5;
+}
+
+.output.row {
+  align-items: center;
+  margin-left: 2em;
+  gap: .5em;
+}
+
+#string-functions .examples {
+  gap: 0 1em;
+}
+
+.hljs-comment, .examples > :nth-child(3n + 3) * {
+  color: hsl(206deg, 52%, 45%);
+}

@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-align: inherit;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+deem {
+  font-style: italic;
+  opacity: .8;
+}
+
+th {
+  font-weight: inherit;
+}
