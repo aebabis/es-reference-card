@@ -1,0 +1,1 @@
+- Consider if there's room for Array.from

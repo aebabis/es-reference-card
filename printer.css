@@ -4,6 +4,10 @@
 }
 
 @media screen {
+  html, body {
+    min-width: calc(8.5in * 2);
+  }
+
   body {
     display: flex;
     background: linear-gradient(45deg,
@@ -13,7 +17,10 @@
   }
 
   .page {
-    border: solid 1px navy;
     margin: 1em;
   }
+}
+
+@page {
+  margin: 0;
 }

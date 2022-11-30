@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" id="code-styles">
   <link rel="stylesheet" type="text/css" href="./style.css">
   <link rel="stylesheet" type="text/css" href="./exceptions.css">
+  <script src="layout.js"></script>
   <script src="highlight.min.js"></script>
   <script>
     let styles = `a11y-dark.min.css                 kimbie-dark.min.css
@@ -67,49 +68,59 @@
     <header>
       <h1>JavaScript Quick Reference</h1>
       <div class="subtitle">Intermediate Level</div>
+      <div class="meta">
+        <div class="author">Alexandra Babis</div>
+        <div class="version">v0.3.1</div>
+      </div>
     </header>
     <div class="row">
       <div class="column">
         <section id="variables">
           <h2>Variables</h2>
           <div class="frame">
-            <pre><code class="js">let height = 5.4;</code></pre>
-            <pre><code class="js">const FPS = 30;  // Can't change</code></pre>
+            <div class="row gap">
+              <div>
+                <pre><code class="js">let height = 5.4;</code></pre>
+                <pre><code class="js">const FPS = 30;</code></pre>
+              </div>
+              <div>
+                <pre><code class="js fade">var size = 50;</code></pre>
+                <div class="note fade">similar to let but weird.</div>
+              </div>
           </div>
-          <p class="note">const is recommended for <em>all</em> values that won&apos;t change.</p>
+            <p class="note">const is recommended for <em>all</em> values that won't be reassigned.</p>
         </section>
-        <section id="string-concatenation">
-          <h2>String concatenation</h2>
-          <div class="examples frame">
-            <pre><code class="js">"5" + "5"</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">"55"</code></pre>
-
-            <pre><code class="js">"5" - "5"</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">0</code></pre>
-          </div>
-          <p class="note">Use parseInt, parseFloat,
-            or <strong>unary plus</strong> to prevent
-            concatenation.
-          </p>
+        <section id="strings">
+          <h2>Strings</h2>
           <div class="frame">
-          <pre><code class="js">const userInput = '19';
-const userAge = +userInput;      //19;
-const ageNextYear = userAge + 1; //20;</code></pre>
+            <pre><code class="js">let name = 'Alan Turing';
+name[0];                       // 'A'
+name[1];                       // 'l'
+name[name.length - 1];         // 'g'</code></pre>
           </div>
-          <p class="note"><strong>Template strings</strong> include
-            variables concisely</p>
           <div class="frame">
-          <pre><code class="js">const text = `In one year,
-  you will be ${ageNextYear}`;</code></pre>
+          <pre><code class="js">'5' + '5'                      // '55'</code></pre>
+          <p class="note">A leading plus converts a string into a number</p>
+          <pre><code class="js">const userInput = '19';        // '19'
+const age = +userInput;        //  19
+const nextYear = age + 1;      //  20</code></pre>
+          </div>
+          <div class="frame">
+          <p class="note">Template strings can include variables concisely</p>
+          <pre><code class="js">const m = `Age next year: ${nextYear}`;</code></pre>
           </div>
         </section>
         <section id="loops">
           <h2>Loops</h2>
           <div class="frame">
-            <pre><code class="js">for (let i = 0; i &lt; 10; i++) {
-  console.log(i);
+            <pre><code class="js">let langs = ['C', 'C++', 'C#'];
+for (const lang of langs)
+  console.log(lang);</code></pre>
+          </div>
+          <div class="frame">
+            <pre><code class="js">for (let x = 1; x &lt;= 10; x++) {
+  const y = i * 3;
+  console.log(`${x} times 3 is ${y}`);
 }</code></pre>
           </div>
           <div class="frame">
@@ -117,46 +128,107 @@ const ageNextYear = userAge + 1; //20;</code></pre>
   console.log(current.value);
 }</code></pre>
           </div>
-          <div class="frame">
+          <!--div class="frame">
             <pre><code class="js">do {
   input = prompt('Enter a number');
 } while(isNaN(input));</code></pre>
-          </div>
-          <p class="note">Array functions (not loops) are recommended
-            for traversing arrays.
-          </p>
+          </div-->
         </section>
       </div>
       <div class="column">
         <section id="operators">
           <h2>Operators</h2>
-          <div class="examples frame">
-            <pre><code class="js">2 + 2</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">4</code></pre>
-
-            <pre><code class="js">6 - 3</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">3</code></pre>
-
-            <pre><code class="js">5 * 4</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">20</code></pre>
-
-            <pre><code class="js">2 ** 3</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">8</code></pre>
-
-            <pre><code class="js">3 / 2</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">1.5</code></pre>
-
-            <pre><code class="js">10 % 3</code></pre>
-            <div>⇒</div>
-            <pre><code class="js">1</code></pre>
-          </div>
-          <p class="note">Use Math.floor for <strong>integer arithmetic</strong></p>
           <div class="frame">
+            <div class="row gap">
+              <div class="examples">
+                <pre><code class="js">2 + 2</code></pre>
+                <div>→</div>
+                <pre><code class="js">4</code></pre>
+
+                <pre><code class="js">6 - 3</code></pre>
+                <div>→</div>
+                <pre><code class="js">3</code></pre>
+
+                <pre><code class="js">5 * 4</code></pre>
+                <div>→</div>
+                <pre><code class="js">20</code></pre>
+
+                <pre><code class="js">3 / 2</code></pre>
+                <div>→</div>
+                <pre><code class="js">1.5</code></pre>
+
+                <pre><code class="js">9 % 4</code></pre>
+                <div>→</div>
+                <pre><code class="js">1</code></pre>
+
+                <pre><code class="js">2 ** 3</code></pre>
+                <div>→</div>
+                <pre><code class="js">8</code></pre>
+              </div>
+              <div class="examples">
+                <pre><code class="js">5 > 1</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+
+                <pre><code class="js">5 &lt; 1</code></pre>
+                <div>→</div>
+                <pre><code class="js">false</code></pre>
+
+                <pre><code class="js">5 >= 5</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+
+                <pre><code class="js">5 &lt;= 5</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+
+                <pre class="fade"><code class="js">'4'== 4 </code></pre>
+                <div class="fade">→</div>
+                <pre class="fade"><code class="js">true</code></pre>
+
+                <pre><code class="js">4 === 4</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+              </div>
+            </div>
+            <p class="note after">== is only recommended when comparing to null</p>
+            <div class="row gap">
+              <div class="examples">
+                <pre><code class="js">true && false</code></pre>
+                <div>→</div>
+                <pre><code class="js">false</code></pre>
+                
+                <pre><code class="js">true || false</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+                
+                <pre><code class="js">0 ?? 20</code></pre>
+                <div>→</div>
+                <pre><code class="js">0</code></pre>
+              </div>
+              <div class="examples">
+                <pre><code class="js">true && 8</code></pre>
+                <div>→</div>
+                <pre><code class="js">8</code></pre>
+                
+                <pre><code class="js">false || 8&nbsp;</code></pre>
+                <div>→</div>
+                <pre><code class="js">8</code></pre>
+                
+                <pre><code class="js">null ?? 8</code></pre>
+                <div>→</div>
+                <pre><code class="js">8</code></pre>
+                
+                <!-- <pre><code class="js">!true</code></pre>
+                <div>→</div>
+                <pre><code class="js">false</code></pre> -->
+              </div>
+            </div>
+            <p class="note after">?? is useful for assigning default values</p>
+              
+          </div>
+          <div class="frame">
+          <p class="note">Math.floor is needed for integer arithmetic</p>
           <pre><code class="js">const eggs = 29;
 const cartons = Math.floor(eggs / 12);
 const leftover = eggs % 12;</code></pre>
@@ -165,67 +237,275 @@ const leftover = eggs % 12;</code></pre>
         <section id="functions">
           <h2>Functions</h2>
           <div class="frame">
-            <h3>function declaration</h3>
-          <pre><code class="js">function showResult(text) {
+            <div class="side-label">
+              <h3>function<br>declaration</h3>
+              <pre><code class="js">function showResult(text) {
   document.body.innerText = text;
 }</code></pre>
-            <h3>arrow function</h3>
-          <pre><code class="js">const showResult = (text) => {
+            </div>
+            <div class="side-label">
+              <h3>arrow<br>function</h3>
+              <pre><code class="js">const showResult = (text) => {
   document.body.innerText = text;
 }</code></pre>
+            </div>
           </div>
           <div class="frame">
-            <h3>function declaration</h3>
             <pre><code class="js">function getCirc(r) {
   return 2 * Math.PI * r;
 }</code></pre>
-            <h3>arrow function</h3>
-            <pre><code class="js">const getCirc = (r) => 2*Math.PI*r;</code></pre>
+            <pre><code class="js">const getCirc = (r) => 2 * Math.PI * r;</code></pre>
           </div>
-          <p><strong>Arrow functions</strong>
-            are concise inside <strong>callbacks</strong>.</p>
           <div class="frame">
-          <pre><code class="js">setTimeout(() => {
-  console.log('1s later');
-}, 1000);</code></pre>
+            <p class="note">Arrow functions make concise callbacks.</p>
+            <pre><code class="js">setTimeout(() => alert('1s later'), 1000);</code></pre>
           </div>
+        </section>
+        <section id="objects">
+          <h2>Objects</h2>
+          <div class="frame">
+            <pre><code class="js">const detective = {
+  firstName: 'Sherlock',
+  lastName: 'Holmes',
+};
+const brother = {
+  ...detective,
+  firstName: 'Mycroft',
+};
+detective.firstName; // 'Sherlock'
+brother.lastName;    // 'Holmes'</code></pre>
         </section>
       </div>
     </div>
   </div>
   <div class="page">
+    <div class="row">
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
+    <section id="arrays">
+      <h2>Arrays <deem>(Lists)</deem></h2>
+      <div class="frame">
+        <pre><code class="js">const colors = ['red', 'brown', 'blue'];
+colors[0];                  // 'red'
+colors[1];                  // 'brown'
+colors.length               // 3
+colors[colors.length - 1]   // 'blue'
+colors.at(-1)               // 'blue'</code></pre>
+      </div>
+    </section>
     <section id="string-functions">
       <h2>String Functions</h2>
-    </section>
-    <section id="array-traversal">
-      <h2>Traversing Arrays</h2>
       <div class="frame">
-        <pre><code class="js">const myList = [1, 2, 5, 7, 4];</code></pre>
         <div class="examples">
-          <pre><code class="js">myList.filter(v => v > 2)</code></pre>
-          <div>⇒</div>
-          <pre><code class="js">[5, 7, 4]</code></pre>
+          <pre><code class="js">'Banana'.substring(3)</code></pre>
+          <div>→</div>
+          <pre><code class="js">'ana'</code></pre>
 
-          <pre><code class="js">myList.map(v => v * 2)</code></pre>
-          <div>⇒</div>
-          <pre><code class="js">[2, 4, 10, 14, 8]</code></pre>
+          <pre><code class="js">'Banana'.indexOf('n')</code></pre>
+          <div>→</div>
+          <pre><code class="js">2</code></pre>
 
-          <pre><code class="js">myList.reduce((a, b) => a + b)</code></pre>
-          <div>⇒</div>
-          <pre><code class="js">19</code></pre>
+          <pre><code class="js">'Banana'.includes('ana')</code></pre>
+          <div>→</div>
+          <pre><code class="js">true</code></pre>
 
-          <pre><code class="js">myList.forEach(v => console.log(v))</code></pre>
-          <div>⇒</div>
-          <deem>(Prints each value in the list)</deem>
+          <pre><code class="js">'Banana'.toUpperCase()</code></pre>
+          <div>→</div>
+          <pre><code class="js">'BANANA'</code></pre>
+
+          <pre><code class="js">'Banana'.toLowerCase()</code></pre>
+          <div>→</div>
+          <pre><code class="js">'banana'</code></pre>
+
+          <!-- <pre><code class="js">'Banana'.replaceAll('na', 'l')</code></pre>
+          <div>→</div>
+          <pre><code class="js">'Ball'</code></pre> -->
+
+          <pre><code class="js">'$85.63'.padStart(10)</code></pre>
+          <div>→</div>
+          <pre><code class="js">'    $86.63'</code></pre>
+
+          <pre><code class="js">'Potato'.padEnd(10, '.')</code></pre>
+          <div>→</div>
+          <pre><code class="js">'Potato....'</code></pre>
+
+          <pre><code class="js">'Hi    '.trim()</code></pre>
+          <div>→</div>
+          <pre><code class="js">'Hi'</code></pre>
+
+          <pre><code class="js">'A-Z'.split('-')</code></pre>
+          <div>→</div>
+          <pre><code class="js">['A', 'Z']</code></pre>
+
+          <!-- <pre><code class="js">'Apple, Banana, Coconut'
+        .split(', ')</code></pre>
+          <div>→</div>
+          <pre><code class="js">['Apple', 'Banana', 'Coconut']</code></pre> -->
         </div>
       </div>
     </section>
-    <section id="array-functions">
-      <h2>Additional Array Functions</h2>
-      <div class="examples frame">
-        <pre><code class="js">['cooking', 'hiking', 'skiing'].includes('cooking')</code></pre>
-        <div>⇒</div>
-        <pre><code class="js">true</code></pre>
+    <section id="traversing-arrays">
+      <h2>Data Processing</h2>
+      <div class="frame">
+        <pre><code class="js">const myList = [4, 0, 1, 3];</code></pre>
+        <pre><code class="js">const sum = (a, b) => a + b;
+ </code></pre>
+        <div class="examples">
+        <pre><code class="js">myList.filter(x => x > 2)</code></pre>
+          <div>→</div>
+          <pre><code class="js">[4, 3]</code></pre>
+        <pre><code class="js">myList.map(x => x * 2)</code></pre>
+          <div>→</div>
+          <pre><code class="js">[8, 0, 2, 6]</code></pre>
+        <pre><code class="js">myList.reduce(sum)</code></pre>
+          <div>→</div>
+          <pre><code class="js">8</code></pre>
+        </div>
+        <pre><code class="js">myList.forEach((value) => {
+  console.log(value);
+});</code></pre>
+        <div class="examples">
+          <pre><code class="js">myList.every(x => x > 5)</code></pre>
+            <div>→</div>
+            <pre><code class="js">false</code></pre>
+          <pre><code class="js">myList.some(x => x > 2)</code></pre>
+            <div>→</div>
+            <pre><code class="js">true</code></pre>
+          <pre><code class="js">myList.join(':')</code></pre>
+            <div>→</div>
+            <pre><code class="js">'4:0:1:3'</code></pre>
+          <pre><code class="js">myList.fill(0)</code></pre>
+            <div>→</div>
+            <div class="note">(fills list with 0s)</div>
+        </div>
+      </div>
+    </section>
+    <section id="modifying-arrays">
+      <h2>Modifying Arrays</h2>
+      <div class="frame">
+        <table class="io">
+          <tbody>
+            <tr>
+              <th><strong>Add</strong> to the end</th>
+              <td><pre><code class="js">list.push('banana')</code></pre></td>
+            </tr>
+            <tr>
+              <th><strong>Add</strong> to the start</em></th>
+              <td><pre><code class="js">list.unshift('banana')</code></pre></td>
+            </tr>
+            <tr>
+              <th><strong>Remove</strong> from end</th>
+              <td><pre><code class="js">list.pop()</code></pre></td>
+            </tr>
+            <tr>
+              <th><strong>Remove</strong> from start</em></th>
+              <td><pre><code class="js">list.shift()</code></pre></td>
+            </tr>
+            <tr>
+              <th><strong>Remove</strong> at index</th>
+              <td><pre><code class="js">list.splice(index, 1)</code></pre></td>
+            </tr>
+            <tr>
+              <th><strong>Insert</strong> at index</th>
+              <td><pre><code class="js">list.splice(index, 0, x)</code></pre></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="searching-arrays">
+      <h2>Searching Arrays</h2>
+      <div class="frame">
+        <!-- <pre><code class="js">const hobbies = [
+  'cooking', 'hiking', 'skiing'];</code></pre>
+        <div class="examples">
+          <pre><code class="js">hobbies.includes('cooking')</code></pre>
+          <div>→</div>
+          <pre><code class="js">true</code></pre>
+
+          <pre><code class="js">hobbies.indexOf('hiking')</code></pre>
+          <div>→</div>
+          <pre><code class="js">1</code></pre> -->
+          
+          <!-- <pre><code class="js">hobbies.join(', ')</code></pre>
+          <div>→</div>
+          <pre><code class="js">'cooking, hiking, skiing'</code></pre> -->
+        <!-- </div> -->
+        <pre><code class="js">const temps = [63, 70, 81, 73, 63, 72];
+  </code></pre>
+        <div class="examples">
+          <pre><code class="js">Math.min(...temps)</code></pre>
+          <div>→</div>
+          <pre><code class="js">63</code></pre>
+          
+          <pre><code class="js">Math.max(...temps)</code></pre>
+          <div>→</div>
+          <pre><code class="js">81</code></pre>
+          
+          <pre><code class="js">temps.includes(70)</code></pre>
+          <div>→</div>
+          <pre><code class="js">true</code></pre>
+          
+          <pre><code class="js">temps.indexOf(63)</code></pre>
+          <div>→</div>
+          <pre><code class="js">0</code></pre>
+          
+          <pre><code class="js">temps.lastIndexOf(63)</code></pre>
+          <div>→</div>
+          <pre><code class="js">4</code></pre>
+          
+          <pre><code class="js">temps.find(t => t > 70)</code></pre>
+          <div>→</div>
+          <pre><code class="js">81</code></pre>
+          
+          <pre><code class="js">temps.find(t => t > 90)</code></pre>
+          <div>→</div>
+          <pre><code class="js">undefined</code></pre>
+
+          <pre><code class="js">temps.findIndex(t => t > 70)</code></pre>
+          <div>→</div>
+          <pre><code class="js">2</code></pre>
+          
+          <pre><code class="js">temps.findIndex(t => t > 90)</code></pre>
+          <div>→</div>
+          <pre><code class="js">-1</code></pre>
+        </div>
+      </div>
+    </section>
+    <section id="copying-arrays">
+      <h2>Copying Arrays</h2>
+      <div class="frame">
+        <pre><code class="js">const list1 = [1, 2, 3];
+const list2 = [4, 5, 6];
+
+const list3 = [...list1];  // [1, 2, 3];
+list1 === list3;           // false
+
+// [1, 2, 3, 4, 5, 6]
+const list4 = [...list1, ...list2];</code></pre>
+        <!--p class="note">(<strong>&hellip;</strong> also works with objects)</p-->
+      </div>
+    </section>
+    <section id="wild">
+      <h2>Destructuring</h2>
+      <div class="frame">
+        <pre><code class="js">const name = 'Samuel L Jackson';
+const parts = name.split(' ');
+
+const [first, middle, last] = parts;
+
+`${last}, ${first}` //  Jackson, Samuel</code></pre>
+      </div>
+      <div class="frame">
+        <pre><code class="js">const { age }    = detective;  // 37
+const { length } = colors;     // 3</code></pre>
+      </div>
+      <div class="frame">
+<pre><code class="js">document.body.onclick = ({ target }) => {
+  console.log(target);
+}</code></pre>
+      </div>
     </section>
   </div>
 </body>

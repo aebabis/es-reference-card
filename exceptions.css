@@ -1,7 +1,3 @@
-.hljs-comment {
-  color: hsl(206deg, 52%, 40%);
-}
-
 #operators .examples > :nth-child(3n + 1) {
   justify-self: center;
 }
