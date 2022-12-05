@@ -70,7 +70,7 @@
       <div class="subtitle">Intermediate Level</div>
       <div class="meta">
         <div class="author">Alexandra Babis</div>
-        <div class="version">v0.3.1</div>
+        <div class="version">v0.3.2</div>
       </div>
     </header>
     <div class="row">
@@ -88,7 +88,7 @@
                 <div class="note fade">similar to let but weird.</div>
               </div>
           </div>
-            <p class="note">const is recommended for <em>all</em> values that won't be reassigned.</p>
+            <!-- <p class="note">const is recommended for <em>all</em> values that won't be reassigned.</p> -->
         </section>
         <section id="strings">
           <h2>Strings</h2>
@@ -182,15 +182,27 @@ for (const lang of langs)
                 <div>→</div>
                 <pre><code class="js">true</code></pre>
 
-                <pre class="fade"><code class="js">'4'== 4 </code></pre>
-                <div class="fade">→</div>
-                <pre class="fade"><code class="js">true</code></pre>
-
                 <pre><code class="js">4 === 4</code></pre>
+                <div>→</div>
+                <pre><code class="js">true</code></pre>
+
+                <pre><code class="js">5 !== '5'</code></pre>
                 <div>→</div>
                 <pre><code class="js">true</code></pre>
               </div>
             </div>
+            <div class="row gap">
+              <div class="examples">
+                <pre class="fade"><code class="js">5 != '5'</code></pre>
+                <div class="fade">→</div>
+                <pre class="fade"><code class="js">false</code></pre>
+                </div>
+              <div class="examples">
+                <pre class="fade"><code class="js">undefined == null</code></pre>
+                <div class="fade">→</div>
+                <pre class="fade"><code class="js">true</code></pre>
+              </div>
+                </div>
             <p class="note after">== is only recommended when comparing to null</p>
             <div class="row gap">
               <div class="examples">
